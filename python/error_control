@@ -25,13 +25,14 @@ except NotImplementedError:
     print("미완성")
 
 class MyError(Exception):
-    pass
+    def __str__(self):
+        return "이쁜 말을 합시다."
 
 def say_nick(nick):
     if nick == "바보":
         raise MyError()
     print(nick)
-
+    
 try:
     say_nick("바보")
 except MyError as e:
