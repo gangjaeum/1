@@ -1,0 +1,27 @@
+import pickle
+#자료형 그대로 저장, 불러오기
+with open("test.txt", 'wb') as f:
+    data = {1: 'python', 2: 'you need'}
+    pickle.dump(data,f)
+
+with open("test.txt", 'rb') as f:
+    data = pickle.load(f)
+    print(data)
+
+import shutil
+f = open("src.txt", 'a')
+shutil.copy("src.txt","dst.txt") #파일 복사
+f.close()
+
+import time
+print(time.ctime()) #현재 시간
+
+import calendar
+print(calendar.weekday(2020,2,2)) #월 0, 화 1 ... 일 6
+print(calendar.monthrange(2020,2)) #1일의 요일, 마지막 날짜
+
+import random
+print(random.randint(1,10)) #1~10 난수
+
+import webbrowser
+webbrowser.open("http://google.com") #open_new는 새로운 창 열기
