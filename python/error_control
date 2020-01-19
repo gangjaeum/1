@@ -1,0 +1,38 @@
+try:
+    with open("no file.file", 'r') as f:
+        pass
+    a = [1,2]
+    print(a[3])
+    4/0
+except (ZeroDivisionError, IndexError) as e:
+    print(e)
+except FileNotFoundError:
+    pass
+finally:
+    print("프로그램 종료")
+    
+class Bird:
+    def fly(self):
+        raise NotImplementedError
+
+class Eagle(Bird):
+    pass
+
+eagle = Eagle()
+try:
+    eagle.fly()
+except NotImplementedError:
+    print("미완성")
+
+class MyError(Exception):
+    pass
+
+def say_nick(nick):
+    if nick == "바보":
+        raise MyError()
+    print(nick)
+
+try:
+    say_nick("바보")
+except MyError as e:
+    print(e)
