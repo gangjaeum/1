@@ -1,0 +1,35 @@
+#\d 숫자[0-9]
+#\D 숫자X[^0-9]
+#\s whitespace[ \t\n\r\f\v]
+#\S whitespaceX[^ \t\n\r\f\v]
+#\w 문자+숫자[a-zA-Z0-9_]
+#\W 문자X+숫자X[^a-zA-Z0-9_]
+
+#^는 문자 시 NOT, 단어 시 처음 의미
+import re
+p = re.compile('[a-z]+')
+#정규식 일치 여부
+print(p.match("python"))
+print(p.match("3python"))
+#일회용 정규식
+print(re.match('[a-z]+', "python"))
+#정규식 포함 여부
+print(p.search("python"))
+print(p.search("3python"))
+#정규식 일치 리스트
+result = p.findall("life is 2 short")
+print(result)
+#DOTALL(S) .이 모든 문자와 매치
+#IGNORECASE(I) 대소문자 무시
+#MULTILINE(M) 각 라인과 매치(^hello일 경우 hello로 시작, bye$일 경우 bye로 종료하는 라인) #문자열 처음\A 끝\Z
+#VERBOSE(X) 정규식 내의 대괄호 안을 제외한 whitespace 제거, 주석 사용 가능
+p = re.compile(r'\\section') #\section 정규식
+#grouping 소괄호를 이용해 정규식 묶는 형태로 사용
+p = re.compile(r"""
+(\w+)                   # name
+\s+                     # whitespace
+((\d+)[-]\d+[-]\d+)     # phone
+""", re.VERBOSE)
+m = p.search("park 010-1234-1234")
+print(m.group(1))
+print(m.group(3))
