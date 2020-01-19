@@ -1,0 +1,10 @@
+import sys
+
+def average():
+    a = 0
+    args = sys.argv[1:]
+    for i in args:
+        a = a + int(i)
+    return a/len(args)
+
+print(average())
