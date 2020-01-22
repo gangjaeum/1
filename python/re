@@ -43,3 +43,11 @@ lee 010-8789-7768
 p = re.compile(r"(\d{3}[-]\d{4}[-])\d{4}")
 result = p.sub("\g<1>####", s)
 print(result)
+
+#그룹 네이밍
+p = re.compile(r"(?P<name>\w+)\s+((\d+)[-]\d+[-]\d+)")
+m = p.search("park 010-1234-1234")
+print(m.group("name"))
+#네이밍 그룹 정규식 내 호출
+p = re.compile(r"(?P<word>\b\w+)\s+(?P=word)")
+print(p.search("hello happy happy world").group())
