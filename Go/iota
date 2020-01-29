@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+//import "unicode/utf8"
+
+func main() {
+	const (
+		sun = iota	//0
+		mon			//1
+		tues
+		wednes
+		thurs
+		fri
+		satur		//6
+	)
+
+	fmt.Println(fri)
+}
