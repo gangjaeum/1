@@ -6,13 +6,13 @@ import "fmt"
 
 func main() {
 	const (
-		sun = iota	//0
-		mon			//1
+		sun = iota * 30 //0
+		mon             //30
 		tues
 		wednes
 		thurs
 		fri
-		satur		//6
+		satur //180
 	)
 
 	fmt.Println(fri)
